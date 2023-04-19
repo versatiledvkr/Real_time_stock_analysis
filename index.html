@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Real-Time Stock Data Analysis</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Real-Time Stock Data Analysis</h1>
+    <p>{{ result }}</p>
+    <form method="POST" action="{{ url_for('result') }}">
+      <div class="form-group">
+        <label for="ticker">Enter stock ticker:</label>
+        <input type="text" id="ticker" name="ticker" required>
+      </div>
+      <button type="submit">Get data</button>
+    </form>
+    {% if plot_url %}
+      <img src="{{ plot_url }}" alt="Stock data plot">
+    {% endif %}
+  </div>
+</body>
+</html>
